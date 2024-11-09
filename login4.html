@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="20">
+    <title>Coding Survey</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mooli&family=Pixelify+Sans&family=Quicksand:wght@300&display=swap');
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Mooli&family=Open+Sans&family=Oswald:wght@300&family=Pixelify+Sans&family=Poppins:wght@100;200&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    
+
+<body>
+
+    <header>
+        
+        <!-- <div class="logo"><img src="https://th.bing.com/th/id/OIG.F_3FZWqYZd_emKUiiJN1?pid=ImgGn" alt=""></div> -->
+
+
+        <div id="hasc">
+            <nav>
+                <ul> <li><a href=""><span class="coding1">FlavorFiesta</span></a></li>
+                    <div class="navbar"><li><a href="login.html">Home</a></li>
+                    <li><a href="extra.html">About</a></li>
+                    <li><a href="extra2.html">Services</a></li>
+                    <li><a href="extra3.html">Contact</a></li></div>
+
+                    <div class="center">
+                        
+                        <input type="checkbox" id="show">
+                        <label for="show" class="show-btn">Log in</label>
+                        <div class="container">
+                            <label for="show" class="close- btn fas fa-times" title="close"></label>
+                            <div class="text">
+                                Login Form
+                            </div>
+                            <form id="contact">
+                                <div class="data">
+                                    <label>Email</label>
+                                    <input type="text" id="email" required>
+                                </div>
+                                <div class="data">
+                                    <label>Password</label>
+                                    <input type="password" id="password" required>
+                                </div>
+                                <div class="btn">
+                                    <div class="inner"></div>
+                                    <button type="submit" class="butn" <a href="index1.html"> Login</button>
+                                </div>
+                                <div class="signup-link">
+                                    <div id="notamember">
+                                        Not a member?
+                                    </div> <a href="exra4.html">Signup now</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <div class="wrapper">
+        <div class="static-txt">Welcome <br><span class="toour">to </span></div>
+        <span></span>
+        <ul class="dynamic-txt">
+            <li><span>FlavorFiesta</span></li>
+        </ul>
+
+
+    </div>
+
+
+    <div class="my1">
+        <div class="my2">Who is your visitors?</div>
+        <div class="my3">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Chefs</a>
+                    </li>
+                    <li>
+                        <a href="#">Customers</a>
+                    </li>
+                    <li>
+                        <a href="#">Restaurants</a>
+                    </li>
+                    <li>
+                        <a href="#">Other</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCQD5ytIVupoi27nuzqj6xlBF-1ccq8P5Q",
+            authDomain: "polling-e0026.firebaseapp.com",
+            databaseURL: "https://polling-e0026-default-rtdb.firebaseio.com",
+            projectId: "polling-e0026",
+            storageBucket: "polling-e0026.appspot.com",
+            messagingSenderId: "566881548354",
+            appId: "1:566881548354:web:0bc7448d2a11ff52af95db",
+            measurementId: "G-36RBFH2H0S"
+            };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        document.getElementById('contact').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email=document.getElementById('email').value;
+            const password=document.getElementById('password').value;
+            signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                window.location.href="index.html";
+            })
+            .catch((error) => {
+                alert('Wrong email or password');
+            });
+            document.getElementById('contact').reset();
+        });
+      </script> -->
+      <script type="module">
+        // Initialize Firebase (the configuration remains unchanged)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCQD5ytIVupoi27nuzqj6xlBF-1ccq8P5Q",
+            authDomain: "polling-e0026.firebaseapp.com",
+            databaseURL: "https://polling-e0026-default-rtdb.firebaseio.com",
+            projectId: "polling-e0026",
+            storageBucket: "polling-e0026.appspot.com",
+            messagingSenderId: "566881548354",
+            appId: "1:566881548354:web:0bc7448d2a11ff52af95db",
+            measurementId: "G-36RBFH2H0S"
+        };
+        const app = initializeApp(firebaseConfig);
+    
+        // Update the form submission logic
+        document.getElementById('contact').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here we can fetch email and password if needed, but not used
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            // Always redirect to index.html regardless of input
+            window.location.href = "index.html";
+    
+            // Optionally reset the form (if you still want to keep it)
+            document.getElementById('contact').reset();
+        });
+    </script>
+    
+</body>
+
+</html>

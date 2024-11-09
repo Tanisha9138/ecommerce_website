@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            /* background-color: #f4f4f4; */
+            background: url('https://www.essenceofcomm.com/wp-content/uploads/2017/06/light-website-backgrounds-light-color-background-images-light-color-background-images-for-website-1024x640.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+        
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .action-btns {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .btn-edit {
+            background-color: #2196F3;
+        }
+        
+        .btn-delete {
+            background-color: #f44336;
+        }
+        
+        .btn-ban {
+            background-color: #ff9800;
+        }
+        
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>User Management Dashboard</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <tr>
+                <td>1</td>
+                <td>amanr.js</td>
+                <td>
+                    <div class="action-btns">
+                        <button class="btn btn-edit" onclick="editUser()">Edit</button>
+                        <button class="btn btn-delete" onclick="deleteUser()">Delete</button>
+                        <button class="btn btn-ban" onclick="banUser()">Ban</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="script2.js"></script>
+    <script>
+        getUsers();
+    </script>
+
+</body>
+
+</html>
