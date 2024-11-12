@@ -127,6 +127,10 @@ const productsData = {
   "Better Basics French Terry Sweatshorts": {
     image: 'images/shorts-2.jpg',
     price: 'Rs.578.00'
+  },
+  "shampoo, conditioner & facewash packs":{
+    image: 'images/shampoo.jpg',
+    price: 'Rs.150.00'
   }
 };
 

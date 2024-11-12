@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfumes - Shopper</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom Styles for Luxurious Look */
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    body {
+      background-color: #f9f8f6;
+      color: #2e2e2e;
+      font-family: 'Garamond', serif;
+      line-height: 1.7;
+    }
+
+    h2, h3 {
+      color: #3b3b58;
+      font-weight: 700;
+      font-family: 'Georgia', serif;
+    }
+
+    .rounded-lg {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Dropdown Selectors */
+    select {
+      border: 2px solid #c0c0c0;
+      background-color: #f1f1f1;
+      transition: border-color 0.3s ease;
+      padding: 8px;
+    }
+    select:focus {
+      border-color: #b89f5d;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background-color: #b89f5d;
+      color: #fff;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 0.25rem;
+      box-shadow: 0 4px 12px rgba(184, 159, 93, 0.3);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #a4884b;
+      box-shadow: 0 6px 15px rgba(184, 159, 93, 0.4);
+    }
+
+    /* Explore More Button */
+    .go-to-homepage-btn {
+      background-color: #b89f5d;
+      color: white;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 0.25rem;
+      box-shadow: 0 4px 12px rgba(184, 159, 93, 0.3);
+      transition: all 0.3s ease;
+    }
+    .go-to-homepage-btn:hover {
+      background-color: #a4884b;
+    }
+
+    /* Notification Styling */
+    .notification {
+      display: none;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border-radius: 0.5rem;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .go-to-homepage-btn {
+      position: fixed;
+      top: 20px;
+      color: white;
+      box-shadow: 0 4px 12px rgba(184, 159, 93, 0.3);
+      right: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .go-to-homepage-btn:hover {
+      background-color: #a4884b;
+    }
+
+    
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    .text-2xl {
+      font-size: 1.25rem; /* Reduce size for better compactness */
+    }
+
+    .text-lg {
+      font-size: 1rem;
+    }
+
+    .mb-6 {
+      margin-bottom: 1rem;
+    }
+
+    .p-3 {
+      padding: 0.75rem;
+    }
+
+    .text-2xl {
+      font-size: 1.25rem;
+    }
+
+    .mx-14 {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    
+    /* Add to Cart Section */
+    .flex-items {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    
+    /* Price Alignment */
+    .price-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+  </style>
+  <script defer>
+    function updatePriceDisplay() {
+      const variant = document.getElementById("variant-selector").value;
+      const topNote = document.getElementById("top-note-selector").value;
+      const heartNote = document.getElementById("heart-note-selector").value;
+      const baseNote = document.getElementById("base-note-selector").value;
+      const quantity = document.getElementById("quantity").value;
+
+      const priceElement = document.getElementById("price");
+      const addToCartButton = document.getElementById("add-to-cart");
+
+      if (variant && topNote && heartNote && baseNote && quantity > 0) {
+        const basePrice = 1120.00;
+        const totalPrice = basePrice * quantity; 
+        priceElement.textContent = ₹${totalPrice.toFixed(2)};
+        priceElement.style.display = "block"; 
+        addToCartButton.disabled = false; 
+      } else {
+        priceElement.style.display = "none"; 
+        addToCartButton.disabled = true;
+      }
+    }
+
+    function addToCart() {
+      const notification = document.getElementById("notification");
+      notification.style.display = "block";
+      setTimeout(() => {
+        notification.style.display = "none";
+      }, 3000);
+    }
+  </script>
+</head>
+<body>
+
+  <!-- Perfume Details Section -->
+  <section class="py-8 text-center"> 
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl mb-4">Luxury Perfume Collection</h2>
+      <p class="text-gray-600 mb-10">Indulge in our luxurious, elegantly crafted fragrances, each a masterpiece designed to define your essence and leave a lasting impression.</p>
+      
+      <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center gap-10">
+        <!-- Product Image on Left -->
+        <div class="lg:w-1/2">
+          <img src="perfume.jpg" alt="Perfume Bottle" class="rounded-lg h-[250px]">
+        </div>
+
+        <!-- Product Description on Right -->
+        <div class="lg:w-1/2 text-left">
+          <!-- Fragrance Variant Selector -->
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-2">Choose Your Fragrance</h3>
+            <select id="variant-selector" class="block w-full p-3 rounded-md" onchange="updatePriceDisplay()">
+              <option value="">Select Variant</option>
+              <option value="Floral">Floral</option>
+              <option value="Woody">Woody</option>
+              <option value="Citrus">Citrus</option>
+              <option value="Oriental">Oriental</option>
+            </select>
+          </div>
+
+          <!-- Fragrance Notes Selector -->
+          <div class="mb-3">
+            <h3 class="text-xl font-semibold mb-2">Select Fragrance Notes</h3>
+            <label class="block mb-2">Top Note</label>
+            <select id="top-note-selector" class="block w-full p-3 rounded-md mb-4" onchange="updatePriceDisplay()">
+              <option value="">Select Top Note</option>
+              <option value="Bergamot">Bergamot</option>
+              <option value="Lemon">Lemon</option>
+              <option value="Lavender">Lavender</option>
+            </select>
+
+            <label class="block mb-2">Heart Note</label>
+            <select id="heart-note-selector" class="block w-full p-3 rounded-md mb-4" onchange="updatePriceDisplay()">
+              <option value="">Select Heart Note</option>
+              <option value="Jasmine">Jasmine</option>
+              <option value="Rose">Rose</option>
+              <option value="Cinnamon">Cinnamon</option>
+            </select>
+
+            <label class="block mb-2">Base Note</label>
+            <select id="base-note-selector" class="block w-full p-3 rounded-md mb-4" onchange="updatePriceDisplay()">
+              <option value="">Select Base Note</option>
+              <option value="Sandalwood">Sandalwood</option>
+              <option value="Vanilla">Vanilla</option>
+              <option value="Amber">Amber</option>
+            </select>
+          </div>
+
+          <!-- Quantity and Price Section -->
+          <div class="flex items-center mb-3">
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Select Quantity</h3>
+              <input id="quantity" type="number" min="1" value="1" class="block w-24 p-3 rounded-md mb-2" onchange="updatePriceDisplay()">
+            </div>
+            <div id="price" class="text-xl font-semibold text-gray-700 mt-2 ml-4" style="display: none;"></div>
+          </div>
+
+          <!-- Buttons Section -->
+          <div class="flex items-center gap-4">
+            <!-- <button id="add-to-cart" class="btn-primary px-8 py-3" onclick="addToCart()" disabled>Add to Cart</button> -->
+            <button class="go-to-homepage-btn" onclick="window.location.href='/exploremore.html'">Explore More</button>
+          </div>
+
+          <!-- Notification -->
+          <div id="notification" class="notification">
+            Item added to cart successfully!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
